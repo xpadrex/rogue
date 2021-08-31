@@ -27,10 +27,21 @@ typedef struct
 } Entity;
 
 
+// draw.c functions
+void drawMap(void);
+void drawEntity(Entity* entity);
+void drawEverything(void);
+
+
 // engine.c functions
 void cursesSetup(void);
 void gameLoop(void);
 void closeGame(void);
+
+
+// map.c functions
+Tile** createMapTiles(void);
+void freeMap(void);
 
 
 // player.c functions

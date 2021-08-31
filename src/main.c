@@ -17,8 +17,9 @@ int main(void)
 {
 	cursesSetup();
 
-	Position start_pos = { 10, 20 };
-	player = createPlayer(start_pos);
+	Position start_pos = { 10, 20 };  // start position for player
+	player = createPlayer(start_pos); // initialize the player variable
+	map = createMapTiles();           // initialize the map variable
 
 	gameLoop();
 
