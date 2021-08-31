@@ -4,8 +4,10 @@
 
 #include <ncurses.h>
 #include <stdlib.h>
+#include <time.h>
 
 
+/* Player position struct */
 typedef struct
 {
 	int y;
@@ -13,13 +15,24 @@ typedef struct
 } Position;
 
 
-typedef struct
+/* Map tile struct */
+typedef struct  
 {
 	char ch;
 	bool walkable;
 } Tile;
 
 
+/* Room struct for generated map */
+typedef struct 
+{
+	int height;
+	int width;
+	Position pos;		// upper left corner of the room
+	Position center;	// connection point for rooms
+} Room;
+
+/* Entity struct */
 typedef struct
 {
 	Position pos;
@@ -49,6 +62,11 @@ void freeMap(void);
 Entity* createPlayer(Position start_pos);
 void handleInput(int input);
 void movePlayer(Position newPos);
+
+
+// room.c functions
+Room createRoom(int y, int x, int height, int width);
+void addRoomToMap(Room room);
 
 
 // externs
