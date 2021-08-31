@@ -15,16 +15,18 @@ Tile** map;
 
 int main(void)
 {
+
+	Position start_pos;
+
 	cursesSetup();
 
-	Position start_pos = { 10, 20 };  // start position for player
-	player = createPlayer(start_pos); // initialize the player variable
 	map = createMapTiles();           // initialize the map variable
+	start_pos = setupMap();
+	player = createPlayer(start_pos);
 
 	gameLoop();
 
 	closeGame();
-
 
 	return 0;
 }
